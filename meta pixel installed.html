@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Gadgets | وسائل ذكية</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '708829054842663');
+    fbq('track', 'PageView');
+    
+    // Track form submissions
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('orderForm').addEventListener('submit', function() {
+            fbq('track', 'Purchase', {
+                value: 126,
+                currency: 'SAR'
+            });
+        });
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=708829054842663&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #4CAF50;
+            --dark: #333;
+            --light: #f8f9fa;
+            --accent: #feca57;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            direction: ltr;
+        }
+        
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.5;
+        }
+        
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(to right, #ffffff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 1.8rem;
+            opacity: 0.9;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .product-images {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .product-images img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .product-images img:hover {
+            transform: scale(1.02);
+        }
+        
+        .product-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .product-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .highlight {
+            background-color: var(--accent);
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .benefits {
+            margin: 25px 0;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .benefit-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .rtl .benefit-icon {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        .price-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 30px auto;
+            max-width: 600px;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .total-row {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            border-bottom: none;
+        }
+        
+        .payment-method {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .payment-method p {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .order-form-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .order-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 40px auto;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .form-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.2);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .testimonials {
+            margin: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .logo span {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo-icon">💆‍♂️</div>
+                <div class="logo">
+                    Smart Gadgets
+                    <span>وسائل ذكية</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="product-container">
+            <div class="product-images">
+                <a href="https://ibb.co/8LpFjCvX"><img src="https://i.ibb.co/W4wSch8s/Screenshot-20250520-222651.png" alt="Electric Massage Pillow"></a>
+                <a href="https://ibb.co/V0N1K2LS"><img src="https://i.ibb.co/vCBFtZcP/Screenshot-20250520-165840-1.jpg" alt="Massage Pillow in use"></a>
+                <a href="https://ibb.co/S49mnDNV"><img src="https://i.ibb.co/mVMyqrJh/Screenshot-20250520-222705.png" alt="Massage Pillow features"></a>
+                <a href="https://ibb.co/39GvR8P8"><img src="https://i.ibb.co/sdkCWDXD/Screenshot-20250520-222721.png" alt="Massage Pillow benefits"></a>
+            </div>
+            
+            <div class="product-details">
+                <h1 class="product-title">Electric Neck & Body Massage Pillow<br>وسادة تدليك كهربائية للرقبة والجسم</h1>
+                
+                <p class="product-subtitle">Say Goodbye to Pain! 🤯 Electric Massage Pillow for Neck & Body – Relax Like Never Before.<br>
+                <span class="rtl">وداعاً للألم! 🤯 وسادة تدليك كهربائية للرقبة والجسم - استرخي كما لم يحدث من قبل!</span></p>
+                
+                <p class="product-subtitle">Tired of Stiffness? 💆‍♂️ This Electric Massage Pillow Melts Stress in Minutes – Try It Today!<br>
+                <span class="rtl">تعاني من التيبس؟ 💆‍♂️ وسادة التدليك الكهربائية هذه تذيب التوتر في دقائق - جربها اليوم!</span></p>
+                
+                <p class="product-subtitle">Pro-Level Relaxation at Home! 🔌 3D Kneading Massage Pillow – Your Neck Will Thank You!<br>
+                <span class="rtl">استرخاء احترافي في المنزل! 🔌 وسادة تدليك ثلاثية الأبعاد - رقبتك سوف تشكرك!</span></p>
+                
+                <div class="benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✔</div>
+                        <div>Instant relief for stiff necks & shoulders</div>
+                    </div>
+                    <div class="benefit-item rtl">
+                        <div class="benefit-icon">✔</div>
+                        <div>راحة فورية للرقبة والكتفين المشدودة</div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✔</div>
+                        <div>Super relaxing – feels like a professional massage!</div>
+                    </div>
+                    <div class="benefit-item rtl">
+                        <div class="benefit-icon">✔</div>
+                        <div>استرخاء لا مثيل له – يحسّك مثل مساج محترف!</div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✔</div>
+                        <div>Compact & easy to use – take it anywhere!</div>
+                    </div>
+                    <div class="benefit-item rtl">
+                        <div class="benefit-icon">✔</div>
+                        <div>صغير وسهل الاستخدام – خذه معك في كل مكان!</div>
+                    </div>
+                </div>
+                
+                <p>Perfect for long workdays, travel, or just chilling at home. 🏠✈️💼<br>
+                <span class="rtl">مثالي لليوم الطويل في العمل، السفر، أو حتى الاسترخاء في البيت. 🏠✈️💼</span></p>
+            </div>
+        </div>
+        
+        <div class="order-form-container">
+            <div class="order-form">
+                <h2 class="form-title">Order Now | اطلب الآن</h2>
+                <form id="orderForm" action="https://formsubmit.co/ahmadkhan129928@gmail.com" method="POST">
+                    <!-- FormSubmit Configuration - Fixed Parameters -->
+                    <input type="hidden" name="_next" value="https://your-thank-you-page.html"> <!-- Replace with your actual thank you page URL -->
+                    <input type="hidden" name="_subject" value="New Order - Electric Massage Pillow">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your order! We will contact you soon.">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <!-- CC to ensure delivery - Removed duplicate CC -->
+                    <input type="hidden" name="_cc" value="ahmadkhan129928@gmail.com">
+                    
+                    <!-- Added more form fields for better tracking -->
+                    <input type="hidden" name="Product" value="Electric Neck & Body Massage Pillow">
+                    <input type="hidden" name="Price" value="96 SAR">
+                    <input type="hidden" name="Shipping" value="30 SAR">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name / الاسم الكامل</label>
+                        <input type="text" id="name" name="Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number / رقم الجوال</label>
+                        <input type="tel" id="phone" name="Phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (Optional) / البريد الإلكتروني (اختياري)</label>
+                        <input type="email" id="email" name="Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Full Address / العنوان الكامل</label>
+                        <textarea id="address" name="Address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity">Quantity / الكمية</label>
+                        <input type="number" id="quantity" name="Quantity" min="1" value="1" required>
+                    </div>
+                    
+                    <div class="price-box">
+                        <div class="price-row">
+                            <span>Product Price:</span>
+                            <span>96 SAR</span>
+                        </div>
+                        <div class="price-row rtl">
+                            <span>سعر المنتج:</span>
+                            <span>96 ر.س</span>
+                        </div>
+                        
+                        <div class="price-row">
+                            <span>Delivery Charges:</span>
+                            <span>30 SAR</span>
+                        </div>
+                        <div class="price-row rtl">
+                            <span>رسوم التوصيل:</span>
+                            <span>30 ر.س</span>
+                        </div>
+                        
+                        <div class="price-row total-row">
+                            <span>Total:</span>
+                            <span>126 SAR</span>
+                        </div>
+                        <div class="price-row total-row rtl">
+                            <span>المجموع:</span>
+                            <span>126 ر.س</span>
+                        </div>
+                        
+                        <div class="payment-method">
+                            <p>Cash on Delivery | الدفع عند الاستلام</p>
+                            <p>Pay after you receive | ادفع بعد الاستلام</p>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn">Place Order | تقديم الطلب</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="testimonials">
+            <h2 class="section-title">What Our Customers Say | آراء عملائنا</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"This massage pillow saved me from chronic neck pain! I use it every day after work."</p>
+                    <p class="testimonial-author">- Ahmed, Riyadh</p>
+                </div>
+                
+                <div class="testimonial-card rtl">
+                    <p class="testimonial-text">"وسادة رائعة! أشعر وكأني أتلقى مساج يومي في المنزل دون الحاجة للذهاب إلى الصالون."</p>
+                    <p class="testimonial-author">- سارة، جدة</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Perfect for my long flights. Compact yet powerful. My travel essential now!"</p>
+                    <p class="testimonial-author">- Khalid, Dammam</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2023 Smart Gadgets | وسائل ذكية. All Rights Reserved.</p>
+            <p>Tired of Neck Pain? Chat Now for Instant Relief!<br>
+            <span class="rtl">تعاني من آلام الرقبة؟ تواصل معا الآن للحصول على راحة فورية!</span></p>
+        </div>
+    </footer>
+    
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Calculate total
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const total = quantity * 126;
+            
+            // Add hidden total field
+            const totalInput = document.createElement('input');
+            totalInput.type = 'hidden';
+            totalInput.name = 'Total';
+            totalInput.value = total + ' SAR';
+            this.appendChild(totalInput);
+            
+            // Track the purchase with Meta Pixel
+            fbq('track', 'Purchase', {
+                value: total,
+                currency: 'SAR',
+                content_type: 'product',
+                content_ids: ['electric_massage_pillow'],
+                contents: [{
+                    id: 'electric_massage_pillow',
+                    quantity: quantity
+                }]
+            });
+            
+            // Show confirmation before submitting
+            if(confirm('Are you sure you want to place this order?\nهل أنت متأكد من تقديم هذا الطلب؟')) {
+                // Submit form
+                this.submit();
+                
+                // Show thank you message
+                alert('Thank you for your order! We will contact you soon.\n\nشكراً لطلبك! سنتواصل معك قريباً.');
+                
+                // Reset form after submission
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
